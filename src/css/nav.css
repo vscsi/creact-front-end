@@ -11,22 +11,27 @@ nav {
   display: flex;
   justify-content: space-around;
   /* margin: 20px; */
-  background-color: #0ac3c3;
+  background-color: #212429;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
+}
+
+nav .nav-left h1{
+  color: white;
 }
 
 /* nav .nav-middle a {
   margin: 20px;
 } */
 
-nav .nav-middle{
+nav .nav-middle {
   display: flex;
 }
 
-nav .nav-middle li{
+nav .nav-middle li {
   list-style-type: none;
   margin: 20px;
+  color: white;
 }
 
 nav button {
@@ -37,7 +42,6 @@ nav button {
 nav .burgerMenu {
   display: none;
   /* justify-content: space-around; */
-  
 }
 
 nav .burgerMenu div {
@@ -51,10 +55,10 @@ nav .burgerMenu div {
   height: 100vh;
   width: 30vw;
   position: absolute;
-  background-color: #0ac3c3;
+  background-color: #212429;
 }
 
-.nav-rightBar ul{
+.nav-rightBar ul {
   height: 50%;
   padding-left: 5px;
 }
@@ -84,7 +88,8 @@ nav .burgerMenu div {
 }
 
 
-@media screen and (min-width: 1000px){
+/* when zoom out, width > 1000px, will make the right bar disappear*/
+@media screen and (min-width: 1000px) {
   .nav-rightBar {
     display: none;
   }

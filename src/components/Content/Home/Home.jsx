@@ -1,7 +1,14 @@
 import React from "react";
+import Header from "./Header";
+import SlogonA from "./SlogonA";
 
 const Home = () => {
-  return <h1>This is Home page</h1>;
+  return (
+    <>
+      <Header />
+      <SlogonA />
+    </>
+  );
 };
 
 export default Home;

@@ -25,7 +25,9 @@ const NavBar = () => {
   return (
     <nav>
       <div className="nav-left">
-        <h1>Logo</h1>
+        <Link to="/">
+          <h1>CREACT</h1>
+        </Link>
       </div>
       <div className="nav-middle">
         <Link to="/download">
