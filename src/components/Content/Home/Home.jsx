@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "./Header";
-import SlogonA from "./SlogonA";
+import HeroSection from "./HeroSection";
 
 const Home = () => {
   return (
     <>
       <Header />
-      <SlogonA />
+      <HeroSection />
     </>
   );
 };
