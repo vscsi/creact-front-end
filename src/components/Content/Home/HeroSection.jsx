@@ -2,6 +2,7 @@ import React from "react";
 import "../../../css/herosection.css";
 import hero_pic_1 from '../../../css/images/header-1.jpeg';
 
+
 const HeroSection = () => {
   return (
     <div className="hero-wrapper">
