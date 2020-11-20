@@ -1,18 +1,23 @@
 import React from "react";
 import "../../../css/herosection.css";
-import hero_pic_1 from '../../../css/images/header-1.jpeg';
+import hero_pic_1 from "../../../css/images/header-1.jpeg";
+import Wave from "./Wave";
 
-const HeroSection = () => {
+const HeroSection = ({ flexReverse, contentH1, contentP, waveShape }) => {
   return (
-    <div className="hero-wrapper">
-      <div className="hero-img">
-        <img src={hero_pic_1} alt="hero-pic-1"/>
+    <>
+      <div className={waveShape === "wave" ? "hero" : "hero2"}>
+        <div className={flexReverse ? "hero-wrapper-reverse" : "hero-wrapper"}>
+          <div className="hero-img">
+            <img src={hero_pic_1} alt="hero-pic-1" />
+          </div>
+          <div className="hero-content">
+            <h1>{contentH1}</h1>
+            <p>{contentP}</p>
+          </div>
+        </div>
       </div>
-      <div className="hero-content">
-        <h1>When Working is no longer a suffer anymore...</h1>
-        <p>Then you will know why people can OT till 12am without extra paid... Is that true?</p>
-      </div>
-    </div>
+    </>
   );
 };
 
