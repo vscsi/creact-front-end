@@ -1,3 +1,15 @@
+# Creact - Capstone project
+
+## Tech Stack
+
+## Features
+
+## Developed by
+
+* [Winnie](https://github.com/wongw859)
+* [Martin](https://github.com/auntRaunt)
+* [Charles](https://github.com/Jarlzc)
+* [Venus](https://github.com/vscsi)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
