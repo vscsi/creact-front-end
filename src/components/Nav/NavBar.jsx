@@ -47,7 +47,9 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="nav-right">
-        <button>Open App</button>
+        <Link to="/login">
+          <button>Open App</button>
+        </Link>
         {burger ? <Burger handleClick={handleClick} /> : ""}
         {isClicked ? <RightBar handleClick={handleClick} /> : ""}
       </div>
