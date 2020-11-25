@@ -1,6 +1,6 @@
 import NavBar from "./components/Nav/NavBar.jsx";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Download from "./components/Content/Downlaod/Download";
+import Download from "./components/Content/Download/Download";
 import Price from "./components/Content/Price/Price";
 import Reason from "./components/Content/Reason/Reason";
 import Safety from "./components/Content/Safety/Safety";
