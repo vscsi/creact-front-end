@@ -5,7 +5,7 @@ import Burger from "./Burger";
 import RightBar from "./RightBar";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [isClicked, setClicked] = useState(false);
   const [burger, setBurger] = useState(false);
   function handleClick() {
@@ -47,8 +47,8 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="nav-right">
-        <Link to="/login">
-          <button>Open App</button>
+        <Link to="/workspace">
+          <button onClick={props.handleLogin}>Open App</button>
         </Link>
         {burger ? <Burger handleClick={handleClick} /> : ""}
         {isClicked ? <RightBar handleClick={handleClick} /> : ""}
