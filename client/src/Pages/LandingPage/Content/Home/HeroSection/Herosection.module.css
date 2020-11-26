@@ -6,7 +6,7 @@
   background-color: white;
 }
 
-.hero-wrapper {
+.heroWrapper {
   width: 1200px;
   height: 500px;
   margin: 0 auto;
@@ -16,7 +16,7 @@
   padding-top: 200px;
 }
 
-.hero-wrapper-reverse {
+.heroWrapperReverse {
   width: 1200px;
   height: 500px;
   margin: 0 auto;
@@ -26,19 +26,19 @@
   padding-top: 200px;
 }
 
-.hero-img {
+.heroImg {
   margin: 0 20px;
 }
 
-.hero-img img {
+.heroImg img {
   width: 600px;
   height: 500px;
 }
 
-.hero-content {
+.heroContent {
   width: 400px;
 }
 
-.hero-content p {
+.heroContent p {
   line-height: 30px;
 }

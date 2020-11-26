@@ -6,6 +6,7 @@ import Typical from 'react-typical';
 const Header = () => {
   return (
     <header>
+      
       <div className="headerBody">
         <h1>Best <span>
           <Typical 
@@ -18,15 +19,19 @@ const Header = () => {
             ]}
           />
           </span>Platform Ever</h1>
+
         <p>
           No matter Working at office, Working at home, Working during trips,
           the place you can name can enjoy using <b>CREACT</b>, which makes the
           work become easy and pleasant!
         </p>
+
         <div className="headerButtons">
           <button>Open CREACT in your browser</button>
         </div>
+
       </div>
+      
     </header>
   );
 };

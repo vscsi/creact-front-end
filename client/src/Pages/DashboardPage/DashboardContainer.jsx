@@ -1,24 +1,25 @@
-import React from 'react'
+import React from 'react';
 import DashboardContainerCss from './DashboardContainer.module.css';
 import DashboardSidebar from './DashboardComponent/DashboardSidebar';
 import DashboardMain from './DashboardComponent/DashboardMain';
 import { Grid } from '@material-ui/core';
+import Aux from '../../hoc/Auxiliary';
 
 
 function DashboardContainer() {
   return (
-    <>
-  <Grid
-  container
-  direction="row"
-  alignItems="stretch"
-  className={`${DashboardContainerCss.containerHeight}`}
-> 
-      <DashboardSidebar />
-      <DashboardMain />
-</Grid>
-    </>
+    <Aux>
+      <Grid
+        container
+        direction="row"
+        alignItems="stretch"
+        className={DashboardContainerCss.containerHeight}
+        > 
+        <DashboardSidebar />
+        <DashboardMain />
+      </Grid>
+    </Aux>
   )
 }
 
-export default DashboardContainer
+export default DashboardContainer;
