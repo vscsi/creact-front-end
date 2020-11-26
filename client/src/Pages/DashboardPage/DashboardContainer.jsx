@@ -12,7 +12,10 @@ function DashboardContainer() {
   container
   direction="row"
   alignItems="stretch"
-  className={`${DashboardContainerCss.containerHeight}`}
+  className={`
+  ${DashboardContainerCss.containerHeight} 
+  ${DashboardContainerCss.containerBackground} 
+  `}
 > 
       <DashboardSidebar />
       <DashboardMain />

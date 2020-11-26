@@ -1,19 +1,7 @@
-*{
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-.testRed{
-  background: red;
-}
-.testBlue{
-  background: blue;
-}
-.testGreen{
-  background: green;
-}
-
 .mainMinWidth{
   width: 85vw;
+}
+
+.mainBackground{
+  background: #797B84;
 }
