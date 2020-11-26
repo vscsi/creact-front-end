@@ -13,7 +13,7 @@ function DashboardSidebar() {
         spacing ={0} 
         justify ='center'
         direction ='column'
-        className={DashboardMainCss.testRed, DashboardSidebarCss.sideBarBorder}>
+        className={`${DashboardMainCss.testRed} ${DashboardSidebarCss.sideBarBorder}`}>
         
         <MaterialUI.Button 
           variant="contained" 
@@ -51,7 +51,7 @@ function DashboardSidebar() {
       <MaterialUI.Grid item 
         md={2} 
         spacing ={0} 
-        className={DashboardMainCss.testRed, DashboardSidebarCss.sideBarBorder}>
+        className={`${DashboardMainCss.testRed} ${DashboardSidebarCss.sideBarBorder}`}>
           Sidebar2
         </MaterialUI.Grid>
 
