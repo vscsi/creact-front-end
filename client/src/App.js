@@ -1,12 +1,12 @@
-import NavBar from "./components/Nav/NavBar.jsx";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Download from "./components/Content/Download/Download";
-import Price from "./components/Content/Price/Price";
-import Reason from "./components/Content/Reason/Reason";
-import Safety from "./components/Content/Safety/Safety";
-import Support from "./components/Content/Support/Support";
-import Home from "./components/Content/Home/Home";
-import Login from "./components/Content/Login/Login";
+import NavBar from "./Pages/LandingPage/Nav/NavBar"
+import Download from "./Pages/LandingPage/Content/Download/Download";
+import Price from "./Pages/LandingPage/Content/Price/Price";
+import Reason from "./Pages/LandingPage/Content/Reason/Reason";
+import Safety from "./Pages/LandingPage/Content/Safety/Safety";
+import Support from "./Pages/LandingPage/Content/Support/Support";
+import Home from "./Pages/LandingPage/Content/Home/Home";
+import Login from "./Pages/LandingPage/Content/Login/Login";
 
 function App() {
   return (

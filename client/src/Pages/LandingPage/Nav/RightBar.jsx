@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/nav.css";
+import "../../../css/nav.css";
 import Burger from "./Burger";
 import { Link } from "react-router-dom";
 // import { AiOutlineClose } from "react-icons/ai";

@@ -1,6 +1,6 @@
-import hero_pic_1 from '../../../images/header-1.jpeg';
-import hero_pic_2 from '../../../images/header-2.jpeg';
-import hero_pic_3 from '../../../images/header-3.jpeg';
+import hero_pic_1 from '../../../../images/header-1.jpeg';
+import hero_pic_2 from '../../../../images/header-2.jpeg';
+import hero_pic_3 from '../../../../images/header-3.jpeg';
 
 
 export const homeObjOne = {
