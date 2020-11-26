@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import HeroSection from "./HeroSection";
+import HeroSection from "./HeroSection/HeroSection";
 import { homeObjOne, homeObjTwo, homeObjThree } from "./Data";
 import Aux from "../../../../hoc/Auxiliary"
 import Wave from "./Wave";

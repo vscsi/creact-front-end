@@ -8,10 +8,11 @@ import Safety from "./Content/Safety/Safety";
 import Support from "./Content/Support/Support";
 import Home from "./Content/Home/Home";
 import Login from "./Content/Login/Login";
+import Aux from "../../hoc/Auxiliary";
 
 function LandingPageContainer() {
   return (
-    <>
+    <Aux>
       <Router>
         <NavBar />
         <Switch>
@@ -24,8 +25,8 @@ function LandingPageContainer() {
           <Route path="/login" component={Login} />
         </Switch>
       </Router>
-    </>
+    </Aux>
   )
 }
 
-export default LandingPageContainer
+export default LandingPageContainer;
