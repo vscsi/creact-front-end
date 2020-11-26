@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "../../css/index.css";
-import "../../css/nav.css";
+import "../../../css/index.css";
+import "../../../css/nav.css";
 import Burger from "./Burger";
 import RightBar from "./RightBar";
 import { Link } from "react-router-dom";

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../css/herosection.css";
+import "../../../../css/herosection.css";
 
 const HeroSection = ({ flexReverse, imgSrc, contentH1, contentP, waveShape }) => {
   return (
