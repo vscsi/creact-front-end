@@ -1,52 +1,85 @@
-import React from 'react'
+import React, {useState} from 'react'
 import * as MaterialUI from '@material-ui/core';
-import DashboardMainCss from './DashboardMain.module.css'
 import DashboardSidebarCss from './DashboardSidebar.module.css'
 
 function DashboardSidebar() {
+
+  //Check if active workspace
+  const [active, setActive] = useState(true);
+  function checkActive(){
+    if(active === true){
+      return DashboardSidebarCss.workspaceIconActive;
+    }
+  }
+
   return (
     <>
     {/* sidebar1 */}
     <MaterialUI.Grid
-    md={1} 
+    container
+    xs={1} 
     spacing ={0} 
-    justify ='center'
+    alignItems = 'center'
+    justify ='flex-start'
     direction ='column'
-    className={`${DashboardMainCss.testRed} ${DashboardSidebarCss.sideBarBorder}`}>
-      
-      <MaterialUI.Button 
-      variant="contained" 
-      color="primary" 
-      size="small"
-      className={DashboardSidebarCss.workspaceIcon}
+    className={`
+    ${DashboardSidebarCss.sideBarBorder}
+    `}>
+
+      <div 
+      className={`
+      ${DashboardSidebarCss.workspaceIconUser}
+      `}
       >
         User
-      </MaterialUI.Button>
-      <div className={DashboardSidebarCss.workSpaceSeparator}>
       </div>
-      <MaterialUI.Button 
-      variant="contained" 
-      color="primary" 
-      className={DashboardSidebarCss.workspaceIcon}
-      size="small"
+
+      <div
+      className={`
+      ${DashboardSidebarCss.workSpaceSeparator}
+      `}
       >
-        W
-      </MaterialUI.Button>
-      <MaterialUI.Button 
-      variant="contained" 
-      color="primary" 
-      className={DashboardSidebarCss.workspaceIcon}
-      size="small"
+      </div>
+      <MaterialUI.Tooltip title="Workspace 1" placement="right-end">
+      <div 
+      className={`
+      ${DashboardSidebarCss.workspaceIcon}
+      ${checkActive()}
+      `}
       >
-        W
-      </MaterialUI.Button>
+    Work space 1
+      </div>
+      </MaterialUI.Tooltip>
+        <MaterialUI.Tooltip title="Workspace 2" placement="right-end">
+      <div 
+       className={`
+       ${DashboardSidebarCss.workspaceIcon}
+       `}
+       >
+    Work space 2
+      </div>
+       </MaterialUI.Tooltip>
+       <MaterialUI.Tooltip title="Workspace 3" placement="right-end">
+      <div 
+       className={`
+       ${DashboardSidebarCss.workspaceIcon}
+       `}
+       >
+    Work space 3
+      </div>
+       </MaterialUI.Tooltip>
     </MaterialUI.Grid>
 
     {/* sidebar2 */}
-    <MaterialUI.Grid item 
+    <MaterialUI.Grid 
+    container 
     md={2} 
     spacing ={0} 
-    className={`${DashboardMainCss.testRed} ${DashboardSidebarCss.sideBarBorder}`}>
+    className={
+      `
+      ${DashboardSidebarCss.sideBarBorder}
+      ${DashboardSidebarCss.sidebar2Background}
+      `}>
       Sidebar2
     </MaterialUI.Grid>
     </> 

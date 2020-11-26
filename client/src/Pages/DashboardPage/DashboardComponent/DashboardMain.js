@@ -8,10 +8,14 @@ function DashboardMain() {
     <>
       <Grid Container 
       direction = "row"
-      md={9}
+      xs={9}
       spacing ={0} 
-      className={`${DashboardMainCss.testGreen}`}
-      alignItems ={'flex-end'}  
+      alignItems ='flex-end'  
+      className={
+        `
+        ${DashboardMainCss.mainBackground}
+        `
+      }
       >
         <DashboardNavbar />
       </Grid>

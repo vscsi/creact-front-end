@@ -1,10 +1,9 @@
 import React from "react";
-import "./herosection.css";
-import Aux from '../../../../../hoc/Auxiliary'
+import "../../../../css/herosection.css";
 
 const HeroSection = ({ flexReverse, imgSrc, contentH1, contentP, waveShape }) => {
   return (
-    <Aux>
+    <>
       <div className={waveShape === "wave" ? "hero" : "hero2"}>
         <div className={flexReverse ? "hero-wrapper-reverse" : "hero-wrapper"}>
           <div className="hero-img">
@@ -16,7 +15,7 @@ const HeroSection = ({ flexReverse, imgSrc, contentH1, contentP, waveShape }) =>
           </div>
         </div>
       </div>
-    </Aux>
+    </>
   );
 };
 
