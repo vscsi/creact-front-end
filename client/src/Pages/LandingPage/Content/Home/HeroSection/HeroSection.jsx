@@ -6,7 +6,7 @@ const HeroSection = ({ flexReverse, imgSrc, contentH1, contentP, waveShape }) =>
   return (
     <Aux>
       <div className={waveShape === "wave" ? classes.hero : classes.hero2}>
-        <div className={flexReverse ? classes.heroWraperReverse : classes.heroWrapper}>
+        <div className={flexReverse ? classes.heroWrapperReverse : classes.heroWrapper}>
           <div className={classes.heroImg}>
             <img src={imgSrc} alt="hero-pic-1" />
           </div>
