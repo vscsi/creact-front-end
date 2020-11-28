@@ -1,80 +1,87 @@
-import React from "react";
+import React, { useState } from "react";
 import * as MaterialUI from "@material-ui/core";
-import DashboardMainCss from "./DashboardMain.module.css";
 import DashboardSidebarCss from "./DashboardSidebar.module.css";
+import Aux from "../../../hoc/Auxiliary";
 
 function DashboardSidebar() {
+  //Check if active workspace
+  const [active, setActive] = useState(true);
+  function checkActive() {
+    if (active === true) {
+      return DashboardSidebarCss.workspaceIconActive;
+    }
+  }
+
   return (
-    <>
+    <Aux>
       {/* sidebar1 */}
       <MaterialUI.Grid
-        md={1}
+        container
+        xs={1}
         spacing={0}
-        justify="center"
+        alignItems="center"
+        justify="flex-start"
         direction="column"
-        className={`${DashboardMainCss.testGrey} ${DashboardSidebarCss.sideBarBorder}`}
+        className={DashboardSidebarCss.sideBarBorder}
       >
-        <MaterialUI.Button
-          variant="contained"
-          color="primary"
-          size="small"
-          className={DashboardSidebarCss.workspaceIcon}
-        >
-          User
-        </MaterialUI.Button>
+        <div className={DashboardSidebarCss.workspaceIconUser}>User</div>
+
         <div className={DashboardSidebarCss.workSpaceSeparator}></div>
-        <MaterialUI.Button
-          variant="contained"
-          color="primary"
-          className={DashboardSidebarCss.workspaceIcon}
-          size="small"
-        >
-          W
-        </MaterialUI.Button>
-        <MaterialUI.Button
-          variant="contained"
-          color="primary"
-          className={DashboardSidebarCss.workspaceIcon}
-          size="small"
-        >
-          W
-        </MaterialUI.Button>
+
+        <MaterialUI.Tooltip title="Workspace 1" placement="right-end">
+          <div
+            className={`${DashboardSidebarCss.workspaceIcon} ${checkActive()}`}
+          >
+            Work space 1
+          </div>
+        </MaterialUI.Tooltip>
+
+        <MaterialUI.Tooltip title="Workspace 2" placement="right-end">
+          <div className={DashboardSidebarCss.workspaceIcon}>Work space 2</div>
+        </MaterialUI.Tooltip>
+
+        <MaterialUI.Tooltip title="Workspace 3" placement="right-end">
+          <div className={DashboardSidebarCss.workspaceIcon}>Work space 3</div>
+        </MaterialUI.Tooltip>
       </MaterialUI.Grid>
 
       {/* sidebar2 */}
       <MaterialUI.Grid
+        container
         md={2}
         spacing={0}
+        alignItems="center"
+        justify="space-around"
         direction="column"
-        className={`${DashboardMainCss.testGrey} ${DashboardSidebarCss.sideBarBorder}`}
+        className={`${DashboardSidebarCss.sideBarBorder} ${DashboardSidebarCss.sidebar2Background}`}
       >
-        Sidebar2
-        <MaterialUI.Button
-          variant="contained"
-          color="primary"
-          className={DashboardSidebarCss.workspaceIcon}
-          size="small"
-        >
-          Chatroom
-        </MaterialUI.Button>
-        <MaterialUI.Button
-          variant="contained"
-          color="primary"
-          className={DashboardSidebarCss.workspaceIcon}
-          size="small"
-        >
-          Chatroom
-        </MaterialUI.Button>
-        <MaterialUI.Button
-          variant="contained"
-          color="primary"
-          className={DashboardSidebarCss.workspaceIcon}
-          size="small"
-        >
-          Chatroom
-        </MaterialUI.Button>
+        <MaterialUI.Tooltip title="Chatroom" placement="right-end">
+          <div className={DashboardSidebarCss.featureIcon}>Chatroom</div>
+        </MaterialUI.Tooltip>
+        <MaterialUI.Tooltip title="Chatroom" placement="right-end">
+          <div className={DashboardSidebarCss.featureIcon}>
+            Collaboration Document
+          </div>
+        </MaterialUI.Tooltip>
+        <MaterialUI.Tooltip title="Chatroom" placement="right-end">
+          <div className={DashboardSidebarCss.featureIcon}>Dropbox</div>
+        </MaterialUI.Tooltip>
+        <MaterialUI.Tooltip title="Chatroom" placement="right-end">
+          <div className={DashboardSidebarCss.featureIcon}>
+            Collaboration Task List
+          </div>
+        </MaterialUI.Tooltip>
+        <MaterialUI.Tooltip title="Chatroom" placement="right-end">
+          <div className={DashboardSidebarCss.featureIcon}>Calender</div>
+        </MaterialUI.Tooltip>
+        <MaterialUI.Tooltip title="Chatroom" placement="right-end">
+          <div className={DashboardSidebarCss.featureIcon}>Whiteboard</div>
+        </MaterialUI.Tooltip>
+        <MaterialUI.Tooltip title="Chatroom" placement="right-end">
+          <div className={DashboardSidebarCss.featureIcon}>Video</div>
+        </MaterialUI.Tooltip>
       </MaterialUI.Grid>
-    </>
+    </Aux>
   );
 }
 

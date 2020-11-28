@@ -16,7 +16,7 @@ nav {
   padding: 10px;
 }
 
-nav .nav-left h1{
+nav .nav-left h1 {
   color: white;
 }
 
@@ -72,6 +72,7 @@ nav .burgerMenu div {
   nav {
     justify-content: space-between;
   }
+
   nav .nav-middle a {
     display: none;
   }

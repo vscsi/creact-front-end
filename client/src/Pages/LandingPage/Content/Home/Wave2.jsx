@@ -1,9 +1,9 @@
 import React from "react";
-import classes from "./Wave.module.css";
+import "../../../../css/wave.css";
 
 const Wave2 = (props) => {
   return (
-    <div className={classes.WaveContainer}>
+    <div className="wave-container">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#f3f4f5"
