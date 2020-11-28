@@ -3,6 +3,8 @@ import { Grid, Paper } from '@material-ui/core';
 import DashboardMainCss from './DashboardMain.module.css'
 import DashboardNavbar from './DashboardNavbar';
 import Aux from '../../../hoc/Auxiliary';
+import CollabTaskContainer from '../DashboardFeatures/CollaborationTaskPage/CollabTaskContainer'
+
 
 function DashboardMain() {
   return (
@@ -15,6 +17,7 @@ function DashboardMain() {
         alignItems ={'flex-end'}  
         >
         <DashboardNavbar />
+        <CollabTaskContainer />
       </Grid>
     </Aux>
   )
