@@ -1,0 +1,17 @@
+.sideBar1MinWidth{
+  width: 5vw;
+}
+
+.sideBarBorder{
+  border: 2px solid black ;
+}
+
+.workSpaceSeparator{
+  margin-top: 0.5rem;
+  width: 80%;
+  border-bottom: 1px solid black;
+}
+
+.workspaceIcon{
+  padding: 0.5rem  ;
+}
