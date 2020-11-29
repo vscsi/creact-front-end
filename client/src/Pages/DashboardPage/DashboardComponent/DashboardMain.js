@@ -13,7 +13,7 @@ function DashboardMain() {
         direction = "row"
         md={9}
         spacing ={0} 
-        className={DashboardMainCss.testGreen}
+        className={`${DashboardMainCss.testGreen}`}
         alignItems ={'flex-end'}  
         >
         <DashboardNavbar />
