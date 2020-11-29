@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CollabTaskListItem from "./CollabTaskListItem";
 import styles from "./CollabTaskList.module.css";
+import Pagination from "./Pagination";
 
 const CollabTaskList = (props) => {
   return (
@@ -18,6 +19,11 @@ const CollabTaskList = (props) => {
           );
         })}
       </div>
+      <Pagination
+        tasksPerPage={props.tasksPerPage}
+        totalTasks={props.totalTasks}
+        paginate={props.paginate}
+      />
     </div>
   );
 };
