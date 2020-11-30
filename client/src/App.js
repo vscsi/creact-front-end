@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DashboardContainer from "./Pages/DashboardPage/DashboardContainer";
 import LandingPageContainer from "./Pages/LandingPage/LandingPageContainer";
+import Aux from './hoc/Auxiliary'
 
 function App() {
   const [isLogin, setLogin] = useState(false);
@@ -9,8 +10,9 @@ function App() {
     setLogin((prev) => !prev);
   }
   return (
+
     <>
-      {/* <LandingPageContainer /> */}
+      <LandingPageContainer />
       <DashboardContainer />
     </>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Paper } from '@material-ui/core';
 import DashboardMainCss from './DashboardMain.module.css'
 import DashboardNavbar from './DashboardNavbar';
+import CollaborationNoteContainer from '../DashboardFeatures/CollaborationNotePage/CollaborationNoteContainer';
 import Aux from '../../../hoc/Auxiliary';
 import CollabTaskContainer from '../DashboardFeatures/CollaborationTaskPage/CollabTaskContainer'
 
