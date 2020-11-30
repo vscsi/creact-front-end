@@ -2,7 +2,7 @@ const knex = require("knex")({
   client: "pg",
   connection: {
     user: "postgres",
-    password: "password",
+    password: "postgres",
     // host: "localhost",
     database: "workspace",
   },

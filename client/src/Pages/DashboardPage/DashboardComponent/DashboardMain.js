@@ -18,7 +18,7 @@ function DashboardMain() {
         alignItems ={'flex-end'}  
         >
         <DashboardNavbar />
-        <CollabTaskContainer />
+        <CollaborationNoteContainer />
       </Grid>
     </Aux>
   )
