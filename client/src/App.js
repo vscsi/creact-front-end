@@ -10,10 +10,11 @@ function App() {
     setLogin((prev) => !prev);
   }
   return (
-    <Aux>
+
+    <>
       <LandingPageContainer />
       <DashboardContainer />
-    </Aux>
+    </>
   );
 }
 
