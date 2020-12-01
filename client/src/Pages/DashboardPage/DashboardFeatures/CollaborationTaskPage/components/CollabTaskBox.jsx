@@ -5,7 +5,7 @@ const CollabTaskBox = (props) => {
   const [taskName, setTaskName] = useState("");
   const [taskContent, setTaskContent] = useState("");
   const [taskDeadline, setTaskDeadline] = useState("");
-  const [taskUser, setTaskUser] = useState("Martin");
+  const [taskUser, setTaskUser] = useState("1");
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -72,10 +72,10 @@ const CollabTaskBox = (props) => {
               id=""
               onChange={(e) => setTaskUser(e.target.value)}
             >
-              <option value="Martin">Martin</option>
-              <option value="Winnie">Winnie</option>
-              <option value="Venus">Venus</option>
-              <option value="Charles">Charles</option>
+              <option value="1">Martin</option>
+              <option value="2">Winnie</option>
+              <option value="3">Venus</option>
+              <option value="4">Charles</option>
             </select>
           </div>
           <div className={styles.box_input}>
