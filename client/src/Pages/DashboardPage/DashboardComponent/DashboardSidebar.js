@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as MaterialUI from "@material-ui/core";
 import DashboardSidebarCss from "./DashboardSidebar.module.css";
-import Aux from "../../../hoc/Auxiliary";
 
 function DashboardSidebar() {
   //Check if active workspace
@@ -13,7 +12,7 @@ function DashboardSidebar() {
   }
 
   return (
-    <Aux>
+    <>
       {/* sidebar1 */}
       <MaterialUI.Grid
         container
@@ -81,7 +80,7 @@ function DashboardSidebar() {
           <div className={DashboardSidebarCss.featureIcon}>Video</div>
         </MaterialUI.Tooltip>
       </MaterialUI.Grid>
-    </Aux>
+    </>
   );
 }
 

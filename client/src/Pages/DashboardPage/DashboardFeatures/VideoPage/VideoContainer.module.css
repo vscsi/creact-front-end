@@ -1,0 +1,12 @@
+.containerDiv {
+    display: flex;
+    height: 80vh;
+    width: 90%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.videoDiv {
+    height: 40%;
+    width: 50%;
+}
