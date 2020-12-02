@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CollaborationTaskContainer() {
+function CollabTaskContainer() {
   return (
     <div>
       Collaboration Task Container
@@ -8,4 +8,4 @@ function CollaborationTaskContainer() {
   )
 }
 
-export default CollaborationTaskContainer
+export default CollabTaskContainer
