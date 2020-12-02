@@ -13,11 +13,12 @@ import CollabTaskContainer from "./DashboardFeatures/CollaborationTaskPage/Colla
 import CalenderContainer from "./DashboardFeatures/CalenderPage/CalenderContainer";
 import WhiteboardContainer from "./DashboardFeatures/WhiteboardPage/WhiteboardContainer";
 import VideoContainer from "./DashboardFeatures/VideoPage/VideoContainer";
+import VideoCreateRoom from "./DashboardFeatures/VideoPage/VideoCreateRoom";
 
 function DashboardContainer() {
   return (
     <>
-      <Grid
+          <Grid
         container
         direction="row"
         alignItems="stretch"
@@ -30,7 +31,6 @@ function DashboardContainer() {
             direction="row"
             md={9}
             spacing={0}
-            className={`${DashboardMainCss.testGreen}`}
             alignItems={"flex-end"}
           >
             <DashboardNavbar />
@@ -44,7 +44,8 @@ function DashboardContainer() {
                 path="/workspace/whiteboard"
                 component={WhiteboardContainer}
               />
-              <Route path="/workspace/video" exact component={VideoContainer} />
+              <Route path="/workspace/video" exact component={VideoCreateRoom} />
+              <Route path="/workspace/video/:roomID" exact component={VideoContainer} />
             </Switch>
           </Grid>
         </Router>

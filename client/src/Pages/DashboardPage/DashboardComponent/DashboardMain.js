@@ -26,14 +26,7 @@ function DashboardMain() {
         <DashboardNavbar />
         <Router>
         <Switch>
-          <Route path="/workspace/chat" component={ChatroomContainer}/>
-          <Route path="/workspace/tasks" component={CollabTaskContainer}/>
-          <Route path="/workspace/docs" component={CollabNoteContainer}/>
-          <Route path="/workspace/dropbox" component={DropboxContainer}/>
-          <Route path="/workspace/calendar" component={CalendarContainer}/>
-          <Route path="/workspace/whiteboard" component={WhiteboardContainer}/>
-          <Route path="/workspace/video" exact component ={VideoCreateRoom}/>
-          <Route path="/workspace/video/:roomID" component ={VideoContainer}/>
+          
         </Switch>
         </Router>
       
