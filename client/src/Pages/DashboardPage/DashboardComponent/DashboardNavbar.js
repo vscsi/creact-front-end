@@ -18,7 +18,7 @@ function DashboardNavbar() {
   /////
   return (
     <>
-       <nav>
+       <nav className={DashboardNavbarCss.DashboardNav}>
         
         <div className ={DashboardNavbarCss.remindBox}>
           Remind Box

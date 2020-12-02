@@ -59,13 +59,13 @@ function DashboardSidebar() {
         direction="column"
         className={`${DashboardSidebarCss.sideBarBorder} ${DashboardSidebarCss.sidebar2Background}`}
       >
-        <NavLink to="/workspace/chat">
+        <NavLink to="/workspace/chat" className= {DashboardSidebarCss.featureIconLink} >
         <MaterialUI.Tooltip title="Chatroom" placement="right-end">
-          <div className={DashboardSidebarCss.featureIcon}>Chatroom</div>
+          <div className={`${DashboardSidebarCss.featureIcon}`}>Chatroom</div>
         </MaterialUI.Tooltip>
         </NavLink>
 
-        <NavLink to="/workspace/docs">
+        <NavLink to="/workspace/docs" className= {DashboardSidebarCss.featureIconLink} >
         <MaterialUI.Tooltip title="Collaboration document" placement="right-end">
           <div className={DashboardSidebarCss.featureIcon}>
             Collaboration Document
@@ -73,13 +73,13 @@ function DashboardSidebar() {
         </MaterialUI.Tooltip>
         </NavLink>
 
-        <NavLink to="/workspace/dropbox">
+        <NavLink to="/workspace/dropbox" className= {DashboardSidebarCss.featureIconLink} >
         <MaterialUI.Tooltip title="Dropbox" placement="right-end">
           <div className={DashboardSidebarCss.featureIcon}>Dropbox</div>
         </MaterialUI.Tooltip>
         </NavLink>
 
-        <NavLink to="/workspace/tasks">
+        <NavLink to="/workspace/tasks" className= {DashboardSidebarCss.featureIconLink} >
         <MaterialUI.Tooltip title="Collaboration Task List" placement="right-end">
           <div className={DashboardSidebarCss.featureIcon}>
             Collaboration Task List
@@ -87,19 +87,19 @@ function DashboardSidebar() {
         </MaterialUI.Tooltip>
         </NavLink>
 
-        <NavLink to="/workspace/calendar">
+        <NavLink to="/workspace/calendar" className= {DashboardSidebarCss.featureIconLink} >
         <MaterialUI.Tooltip title="Chatroom" placement="right-end">
           <div className={DashboardSidebarCss.featureIcon}>Calender</div>
         </MaterialUI.Tooltip>
         </NavLink>
 
-        <NavLink to="/workspace/whiteboard">
+        <NavLink to="/workspace/whiteboard" className= {DashboardSidebarCss.featureIconLink} >
         <MaterialUI.Tooltip title="Whiteboard" placement="right-end">
           <div className={DashboardSidebarCss.featureIcon}>Whiteboard</div>
         </MaterialUI.Tooltip>
         </NavLink>
 
-        <NavLink to="/workspace/video">
+        <NavLink to="/workspace/video" className= {DashboardSidebarCss.featureIconLink} >
         <MaterialUI.Tooltip title="Video" placement="right-end">
           <div className={DashboardSidebarCss.featureIcon}>Video</div>
         </MaterialUI.Tooltip>

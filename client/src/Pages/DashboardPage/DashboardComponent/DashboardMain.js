@@ -9,7 +9,7 @@ import ChatroomContainer from '../DashboardFeatures/ChatroomPage/ChatroomContain
 import DropboxContainer from '../DashboardFeatures/DropboxPage/DropboxContainer'
 import CalendarContainer from '../DashboardFeatures/CalenderPage/CalenderContainer'
 import WhiteboardContainer from '../DashboardFeatures/WhiteboardPage/WhiteboardContainer'
-import CollabNoteContainer from '../DashboardFeatures/CollaborationNotePage/CollaborationNoteContainer';
+import CollabNoteContainer from '../DashboardFeatures/CollaborationNotePage/CollabNoteContainer';
 import CollabTaskContainer from '../DashboardFeatures/CollaborationTaskPage/CollabTaskContainer'
 
 
@@ -21,7 +21,7 @@ function DashboardMain() {
         md={9}
         spacing ={0} 
         className={`${DashboardMainCss.testGreen}`}
-        alignItems ={'flex-end'}  
+        alignItems ={'flex-start'}  
         >
         <DashboardNavbar />
         <Router>
