@@ -5,29 +5,30 @@ import DashboardMainCss from './DashboardMain.module.css'
 import DashboardNavbar from './DashboardNavbar';
 import VideoContainer from '../DashboardFeatures/VideoPage/VideoContainer';
 import VideoCreateRoom from '../DashboardFeatures/VideoPage/VideoCreateRoom';
-import CollaborationTaskContainer from '../DashboardFeatures/CollaborationTaskPage/CollaborationTaskContainer';
-import CollaborationNoteContainer from '../DashboardFeatures/CollaborationNotePage/CollaborationNoteContainer'
 import ChatroomContainer from '../DashboardFeatures/ChatroomPage/ChatroomContainer'
 import DropboxContainer from '../DashboardFeatures/DropboxPage/DropboxContainer'
 import CalendarContainer from '../DashboardFeatures/CalenderPage/CalenderContainer'
 import WhiteboardContainer from '../DashboardFeatures/WhiteboardPage/WhiteboardContainer'
+import CollabNoteContainer from '../DashboardFeatures/CollaborationNotePage/CollaborationNoteContainer';
+import CollabTaskContainer from '../DashboardFeatures/CollaborationTaskPage/CollabTaskContainer'
+
 
 function DashboardMain() {
   return (
     <>
-      <Grid Container 
+      <Grid container 
         direction = "row"
         md={9}
         spacing ={0} 
-        className={DashboardMainCss.testGreen}
+        className={`${DashboardMainCss.testGreen}`}
         alignItems ={'flex-end'}  
         >
         <DashboardNavbar />
         <Router>
         <Switch>
           <Route path="/workspace/chat" component={ChatroomContainer}/>
-          <Route path="/workspace/tasks" component={CollaborationTaskContainer}/>
-          <Route path="/workspace/docs" component={CollaborationNoteContainer}/>
+          <Route path="/workspace/tasks" component={CollabTaskContainer}/>
+          <Route path="/workspace/docs" component={CollabNoteContainer}/>
           <Route path="/workspace/dropbox" component={DropboxContainer}/>
           <Route path="/workspace/calendar" component={CalendarContainer}/>
           <Route path="/workspace/whiteboard" component={WhiteboardContainer}/>

@@ -108,7 +108,6 @@ function DashboardSidebar() {
       </MaterialUI.Grid>
         </Switch>
       </Router>
-      
     </>
   );
 }
