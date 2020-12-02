@@ -47,7 +47,7 @@ const NavBar = (props) => {
         </Link>
       </div>
       <div className="nav-right">
-        <Link to="/workspace">
+        <Link to="/login">
           <button onClick={props.handleLogin}>Open App</button>
         </Link>
         {burger ? <Burger handleClick={handleClick} /> : ""}
@@ -57,4 +57,4 @@ const NavBar = (props) => {
   );
 };
 
-export default NavBar; 
+export default NavBar;

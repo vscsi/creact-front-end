@@ -19,7 +19,8 @@ const CollabTaskListItem = (props) => {
       </div>
       <div className={styles.task_box}>
         <h3>Deadline: </h3>
-        <p>{parseISOString("" + props.task.task_deadline).toString()}</p>
+        {/* <p>{parseISOString("" + props.task.task_deadline).toString()}</p> */}
+        <p>{parseISOString("2020-11-30T10:48:00.000Z").toString()}</p>
       </div>
       <div className={styles.task_box}>
         <h3>Description: </h3>
