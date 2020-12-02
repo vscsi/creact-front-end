@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useLocation } from "react";
 import "../../../css/index.css";
 import "../../../css/nav.css";
 import Burger from "./Burger";
 import RightBar from "./RightBar";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route,Switch } from "react-router-dom";
+import Download from "../Content/Download/Download";
+import Price from "../Content/Price/Price";
+import Reason from "../Content/Reason/Reason";
+import Safety from "../Content/Safety/Safety";
+import Support from "../Content/Support/Support";
+import Home from "../Content/Home/Home";
+import LoginContainer from"../.././LoginPage/LoginContainer"
 
 const NavBar = (props) => {
   const [isClicked, setClicked] = useState(false);
@@ -21,8 +28,11 @@ const NavBar = (props) => {
     }
   };
   window.addEventListener("resize", showButton);
+  
 
   return (
+    <>
+    <Router>
     <nav>
       <div className="nav-left">
         <Link to="/">
@@ -47,13 +57,24 @@ const NavBar = (props) => {
         </Link>
       </div>
       <div className="nav-right">
-        <Link to="/workspace">
+        <Link to="/login">
           <button onClick={props.handleLogin}>Open App</button>
         </Link>
         {burger ? <Burger handleClick={handleClick} /> : ""}
         {isClicked ? <RightBar handleClick={handleClick} /> : ""}
       </div>
-    </nav>
+    </nav> 
+    <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/download" component={Download} />
+          <Route path="/reason" component={Reason} />
+          <Route path="/price" component={Price} />
+          <Route path="/safety" component={Safety} />
+          <Route path="/support" component={Support} />
+          <Route path="/login" component={LoginContainer} />
+    </Switch>
+    </Router>
+    </>
   );
 };
 
