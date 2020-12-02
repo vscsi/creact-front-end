@@ -4,7 +4,6 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import DashboardNavbarCss from './DashboardNavbar.module.css'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Aux from '../../../hoc/Auxiliary';
 
 function DashboardNavbar() {
   //overriding Avatar root class
@@ -18,8 +17,8 @@ function DashboardNavbar() {
   const classes = styles();
   /////
   return (
-    <Aux>
-       <nav>
+    <>
+       <nav className={DashboardNavbarCss.DashboardNav}>
         
         <div className ={DashboardNavbarCss.remindBox}>
           Remind Box
@@ -44,7 +43,7 @@ function DashboardNavbar() {
         </div>
        
       </nav>
-    </Aux>
+    </>
   )
 }
 
