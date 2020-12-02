@@ -3,12 +3,11 @@ import DashboardContainerCss from './DashboardContainer.module.css';
 import DashboardSidebar from './DashboardComponent/DashboardSidebar';
 import DashboardMain from './DashboardComponent/DashboardMain';
 import { Grid } from '@material-ui/core';
-import Aux from '../../hoc/Auxiliary';
 
 
 function DashboardContainer() {
   return (
-    <Aux>
+    <>
       <Grid
         container
         direction="row"
@@ -18,7 +17,7 @@ function DashboardContainer() {
         <DashboardSidebar />
         <DashboardMain />
       </Grid>
-    </Aux>
+    </>
   )
 }
 
