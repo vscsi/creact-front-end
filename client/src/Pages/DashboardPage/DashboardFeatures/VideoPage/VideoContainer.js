@@ -23,7 +23,7 @@ const videoConstraints = {
     width: window.innerWidth / 2
 };
 
-const VideoRoom = (props) => {
+const VideoContainer = (props) => {
     const [peers, setPeers] = useState([]);
     const socketRef = useRef();
     const userVideo = useRef();
@@ -112,4 +112,4 @@ const VideoRoom = (props) => {
     );
 };
 
-export default VideoRoom;
+export default VideoContainer;

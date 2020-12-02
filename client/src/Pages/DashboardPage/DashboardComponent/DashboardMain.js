@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Grid, Paper } from '@material-ui/core';
 import DashboardMainCss from './DashboardMain.module.css'
 import DashboardNavbar from './DashboardNavbar';
@@ -21,14 +21,13 @@ function DashboardMain() {
         alignItems ={'flex-end'}  
         >
         <DashboardNavbar />
-        <CollabTaskContainer />
-        <CollabNoteContainer />
-        <BrowserRouter>
+        <Router>
         <Switch>
-          <Route path="/video" exact component ={VideoCreateRoom}/>
-          <Route path="/video/:roomID" component ={VideoContainer}/>
-          </Switch>
-        </BrowserRouter>
+          <Route path="/workspace/video" exact component ={VideoCreateRoom}/>
+          <Route path="/workspace/video/:roomID" component ={VideoContainer}/>
+        </Switch>
+        </Router>
+      
       </Grid>
     </>
   )

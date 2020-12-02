@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useLocation} from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./Nav/NavBar";
 import Download from "./Content/Download/Download";
@@ -10,19 +10,19 @@ import Home from "./Content/Home/Home";
 import Login from "./Content/Login/Login";
 
 function LandingPageContainer(props) {
+  
+
+  const [isLogin, setLogin] = useState(false);
+  function handleLogin() {
+    console.log("Render from App.js");
+    setLogin((prev)=>{
+      return !prev;
+    })
+  }
+
   return (
-    <>
-      <Router>
-        <NavBar handleLogin={props.handleLogin} />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/download" component={Download} />
-          <Route path="/reason" component={Reason} />
-          <Route path="/price" component={Price} />
-          <Route path="/safety" component={Safety} />
-          <Route path="/support" component={Support} />
-        </Switch>
-      </Router>
+    <>  
+      <NavBar/>
     </>
   )
 }

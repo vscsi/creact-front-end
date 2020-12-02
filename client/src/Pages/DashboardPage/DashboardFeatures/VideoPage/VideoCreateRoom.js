@@ -7,7 +7,7 @@ import VideoContainerCss from './VideoContainer.module.css'
 const VideoCreateRoom = (props) => {
     function create() {
         const id = uuid();
-        props.history.push(`/video/${id}`);
+        props.history.push(`/workspace/video/${id}`);
     }
 
     return (

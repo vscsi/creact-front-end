@@ -7,6 +7,9 @@
 }
 
 .videoDiv {
-    height: 40%;
-    width: 50%;
+    display:inline-flex;
+    flex-wrap: wrap;
+    gap:5vw;
+    height: 40vh;
+    width: 30vw;
 }
