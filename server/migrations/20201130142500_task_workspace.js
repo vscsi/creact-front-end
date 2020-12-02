@@ -7,7 +7,7 @@ exports.up = function(knex) {
         table.integer('task_id').unsigned();
         table.foreign('task_id').references('task.id');
         table.integer('user_id').unsigned();
-        table.foreign('user_id').references('user.id');
+        table.foreign('user_id').references('users.id');
     })
   };
   

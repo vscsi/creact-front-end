@@ -1,9 +1,8 @@
 import React from "react";
-import Aux from '../../../../hoc/Auxiliary';
 
 const Login = () => {
   return (
-    <Aux>
+    <>
       <div className="login-header">
         <h1>CREACT</h1>
       </div>
@@ -23,7 +22,7 @@ const Login = () => {
           <a href="">Sign Up</a>
         </form>
       </div>
-    </Aux>
+    </>
   );
 };
 

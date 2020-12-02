@@ -10,14 +10,20 @@ function App() {
   const [isLogin, setLogin] = useState(false);
   function handleLogin() {
     console.log("Render from App.js");
-    setLogin((prev) => !prev);
+    setLogin((prev)=>{
+      return !prev;
+    })
   }
-  return (
-    <>
-      <LandingPageContainer />
-      <DashboardContainer />
-    </>
-  );
+  
+    return(
+      <Router>
+        <Switch>
+          <Route path="/" exact component={LandingPageContainer} />
+          <Route path="/login" component={LoginContainer} />
+          <Route path="/workspace" component={DashboardContainer} />
+        </Switch>
+      </Router>
+    )
 }
 
-export default App;
+export default App
