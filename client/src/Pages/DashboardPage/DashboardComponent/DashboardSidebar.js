@@ -59,11 +59,11 @@ function DashboardSidebar() {
         direction="column"
         className={`${DashboardSidebarCss.sideBarBorder} ${DashboardSidebarCss.sidebar2Background}`}
       >
-        <NavLink to="/workspace/chat" className= {DashboardSidebarCss.featureIconLink} >
         <MaterialUI.Tooltip title="Chatroom" placement="right-end">
+        <NavLink to="/workspace/chat" className= {DashboardSidebarCss.featureIconLink} >
           <div className={`${DashboardSidebarCss.featureIcon}`}>Chatroom</div>
-        </MaterialUI.Tooltip>
         </NavLink>
+        </MaterialUI.Tooltip>
 
         <NavLink to="/workspace/docs" className= {DashboardSidebarCss.featureIconLink} >
         <MaterialUI.Tooltip title="Collaboration document" placement="right-end">
