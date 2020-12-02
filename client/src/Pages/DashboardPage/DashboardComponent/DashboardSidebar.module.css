@@ -71,7 +71,8 @@
 }
 
 .featureIcon {
-  font-size: 1.2rem;
+  color: #000;
+  font-size: 1rem;
   background: #fff;
   display: flex;
   align-items: center;
@@ -83,4 +84,8 @@
   transition: all 0.2s ease-in-out;
   box-shadow: 0 3px 5px 2px rgba(175, 27, 63, 0.4);
   text-align: center;
+}
+
+.featureIconLink:hover{
+  text-decoration: none;
 }

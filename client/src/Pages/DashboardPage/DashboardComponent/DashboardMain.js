@@ -1,25 +1,44 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Grid, Paper } from '@material-ui/core';
 import DashboardMainCss from './DashboardMain.module.css'
 import DashboardNavbar from './DashboardNavbar';
-import Aux from '../../../hoc/Auxiliary';
+import VideoContainer from '../DashboardFeatures/VideoPage/VideoContainer';
+import VideoCreateRoom from '../DashboardFeatures/VideoPage/VideoCreateRoom';
+import ChatroomContainer from '../DashboardFeatures/ChatroomPage/ChatroomContainer'
+import DropboxContainer from '../DashboardFeatures/DropboxPage/DropboxContainer'
+import CalendarContainer from '../DashboardFeatures/CalenderPage/CalenderContainer'
+import WhiteboardContainer from '../DashboardFeatures/WhiteboardPage/WhiteboardContainer'
+import CollabNoteContainer from '../DashboardFeatures/CollaborationNotePage/CollabNoteContainer';
 import CollabTaskContainer from '../DashboardFeatures/CollaborationTaskPage/CollabTaskContainer'
 
 
 function DashboardMain() {
   return (
-    <Aux>
-      <Grid Container 
+    <>
+      <Grid container 
         direction = "row"
         md={9}
         spacing ={0} 
         className={`${DashboardMainCss.testGreen}`}
-        alignItems ={'flex-end'}  
+        alignItems ={'flex-start'}  
         >
         <DashboardNavbar />
-        <CollabTaskContainer />
+        <Router>
+        <Switch>
+          <Route path="/workspace/chat" component={ChatroomContainer}/>
+          <Route path="/workspace/tasks" component={CollabTaskContainer}/>
+          <Route path="/workspace/docs" component={CollabNoteContainer}/>
+          <Route path="/workspace/dropbox" component={DropboxContainer}/>
+          <Route path="/workspace/calendar" component={CalendarContainer}/>
+          <Route path="/workspace/whiteboard" component={WhiteboardContainer}/>
+          <Route path="/workspace/video" exact component ={VideoCreateRoom}/>
+          <Route path="/workspace/video/:roomID" component ={VideoContainer}/>
+        </Switch>
+        </Router>
+      
       </Grid>
-    </Aux>
+    </>
   )
 }
 
