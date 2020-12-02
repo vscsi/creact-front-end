@@ -1,10 +1,8 @@
-import React,{useState, useLocation} from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React,{useState} from "react";
 import NavBar from "./Nav/NavBar";
 
 
 function LandingPageContainer(props) {
-  
 
   const [isLogin, setLogin] = useState(false);
   function handleLogin() {

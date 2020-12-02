@@ -3,7 +3,7 @@ import "../../../css/index.css";
 import "../../../css/nav.css";
 import Burger from "./Burger";
 import RightBar from "./RightBar";
-import { BrowserRouter as Router, Link, Route,Switch } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route,Switch, useHistory } from "react-router-dom";
 import Download from "../Content/Download/Download";
 import Price from "../Content/Price/Price";
 import Reason from "../Content/Reason/Reason";
@@ -29,6 +29,8 @@ const NavBar = (props) => {
   };
   window.addEventListener("resize", showButton);
   
+  const history= useHistory();
+
 
   return (
     <>
@@ -58,7 +60,11 @@ const NavBar = (props) => {
       </div>
       <div className="nav-right">
         <Link to="/login">
-          <button onClick={props.handleLogin}>Open App</button>
+          <button onClick={
+            ()=>{
+              history.push('/login')
+            }
+          }>Open App</button>
         </Link>
         {burger ? <Burger handleClick={handleClick} /> : ""}
         {isClicked ? <RightBar handleClick={handleClick} /> : ""}
@@ -71,7 +77,6 @@ const NavBar = (props) => {
           <Route path="/price" component={Price} />
           <Route path="/safety" component={Safety} />
           <Route path="/support" component={Support} />
-          <Route path="/login" component={LoginContainer} />
     </Switch>
     </Router>
     </>
