@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import DashboardContainer from "./Pages/DashboardPage/DashboardContainer";
 import LandingPageContainer from "./Pages/LandingPage/LandingPageContainer";
 import LoginContainer from "./Pages/LoginPage/LoginContainer";
-import Aux from './hoc/Auxiliary'
-import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
 

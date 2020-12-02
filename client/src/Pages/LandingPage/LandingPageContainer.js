@@ -1,5 +1,4 @@
-import React,{useState, useLocation} from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React,{useState} from "react";
 import NavBar from "./Nav/NavBar";
 import Download from "./Content/Download/Download";
 import Price from "./Content/Price/Price";
@@ -10,7 +9,6 @@ import Home from "./Content/Home/Home";
 import Login from "./Content/Login/Login";
 
 function LandingPageContainer(props) {
-  
 
   const [isLogin, setLogin] = useState(false);
   function handleLogin() {
