@@ -14,7 +14,6 @@ function App() {
       return !prev;
     })
   }
-  
     return(
       <Router>
         <Switch>

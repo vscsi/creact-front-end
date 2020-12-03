@@ -14,7 +14,7 @@ function DashboardMain() {
   return (
     <>
       <Grid container 
-        direction = "row"
+        direction="row"
         md={9}
         spacing ={0} 
         className={`${DashboardMainCss.testGreen}`}
