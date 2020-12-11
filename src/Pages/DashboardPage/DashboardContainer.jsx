@@ -5,7 +5,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useParams,
 } from "react-router-dom";
 import DashboardNavbar from "./DashboardComponent/DashboardNavbar";
 import ChatroomContainer from "./DashboardFeatures/ChatroomPage/ChatroomContainer";
@@ -27,7 +26,6 @@ function DashboardContainer() {
   const [userName, setUserName] = useState("");
   const [workspaces, setWorkspaces] = useState([]);
   const [currentWorkspace, setCurrentWorkspace] = useState("");
-  const { name } = useParams();
 
   const getAllWorkspace = () => {
     try {
