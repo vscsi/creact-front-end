@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CollabTaskBox from "./components/CollabTaskBox";
 import CollabTaskList from "./components/CollabTaskList";
-import Pagination from "./components/Pagination";
+// import Pagination from "./components/Pagination";
 import styles from "./CollabTaskContainer.module.css";
 
 const CollabTaskContainer = () => {
@@ -11,6 +11,7 @@ const CollabTaskContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [tasksPerPage, setTasksPerPage] = useState(4);
 
+  console.log(loading, setTasksPerPage)
   //get all tasks function
   const getTasks = async () => {
     try {
