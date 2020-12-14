@@ -7,7 +7,7 @@ import {
   // Route,
   NavLink,
   // useHistory,
-  useParams,
+  // useParams,
 } from "react-router-dom";
 
 const DashboardFeatureSidebar = (props) => {

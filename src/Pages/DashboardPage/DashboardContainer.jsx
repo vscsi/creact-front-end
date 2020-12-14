@@ -69,7 +69,7 @@ function DashboardContainer() {
     const path = window.location.pathname;
     // console.log(`url is below`);
     // console.log(path);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
     const regex = /\/workspace\/([^\/]+)/;
     const result = path.match(regex);
     // console.log(`currworkspace url is below`);

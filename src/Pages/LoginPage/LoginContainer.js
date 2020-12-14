@@ -61,6 +61,7 @@ export default function SignIn() {
   const classes = useStyles();
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  // eslint-disable-next-line 
   const [loginStatus, setLoginStatus] = useState(false);
 
   const history = createBrowserHistory();

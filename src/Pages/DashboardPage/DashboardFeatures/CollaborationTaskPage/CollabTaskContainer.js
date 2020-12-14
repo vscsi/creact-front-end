@@ -9,10 +9,10 @@ import { getCurrentWorkspace } from "../../../../services/getCurrentWorkspace";
 const CollabTaskContainer = (props) => {
   const [tasks, setTasks] = useState([]);
   //For Pagination
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line
   const [tasksPerPage, setTasksPerPage] = useState(4);
 
   //get all tasks function

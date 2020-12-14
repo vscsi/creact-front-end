@@ -8,8 +8,7 @@ const CollabTaskList = (props) => {
     <div className={styles.box}>
       <h1>Task Lists</h1>
       <div className={styles.tasks}>
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-        {props.tasks.map((task, index) => {
+        {props.tasks.map((task) => {
           return (
             <CollabTaskListItem
               key={task.id}
