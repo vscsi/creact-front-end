@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CollabTaskListItem from "./CollabTaskListItem";
 import styles from "./CollabTaskList.module.css";
 import Pagination from "./Pagination";
@@ -8,6 +8,7 @@ const CollabTaskList = (props) => {
     <div className={styles.box}>
       <h1>Task Lists</h1>
       <div className={styles.tasks}>
+      // eslint-disable-next-line react-hooks/exhaustive-deps
         {props.tasks.map((task, index) => {
           return (
             <CollabTaskListItem
