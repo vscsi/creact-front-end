@@ -12,23 +12,23 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-// import {
-//   Link as RouterLink,
-//   Route,
-//   BrowserRouter as Router,
-// } from "react-router-dom";
+import {
+  Link as RouterLink,
+  Route,
+  BrowserRouter as Router,
+} from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Axios from "axios";
-// import AuthService from "../../services/auth.service";
+import AuthService from "../../services/auth.service";
 
-// import DashboardContainer from "../DashboardPage/DashboardContainer";
-// import RegisterContainer from "../RegisterPage/RegisterContainer";
+import DashboardContainer from "../DashboardPage/DashboardContainer";
+import RegisterContainer from "../RegisterPage/RegisterContainer";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="http://creact-app.com">
+      <Link color="inherit" href="http://localhost:3000">
         CREACT
       </Link>{" "}
       {new Date().getFullYear()}
@@ -62,8 +62,6 @@ export default function SignIn() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState(false);
-  
-  console.log(loginStatus)
 
   const history = createBrowserHistory();
 
@@ -76,7 +74,7 @@ export default function SignIn() {
         password,
       };
       // const result = await fetch("http://localhost:4000/login", {
-      const result = await fetch(`${process.env.REACT_APP_API_SERVER}/login`, {
+      const result = await fetch(`${process.env.REACT_APP_SERVER}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -101,7 +99,7 @@ export default function SignIn() {
   const checkAuth = () => {
     try {
       // Axios.get("http://localhost:4000/isUserAuth", {
-      Axios.get(`${process.env.REACT_APP_API_SERVER}/isUserAuth`, {
+      Axios.get(`${process.env.REACT_APP_SERVER}/isUserAuth`, {
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },
