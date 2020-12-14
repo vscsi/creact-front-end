@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import NavBar from "./Nav/NavBar";
 // import Download from "./Content/Download/Download";
 // import Price from "./Content/Price/Price";
