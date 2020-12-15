@@ -10,6 +10,8 @@ import {
   useHistory,
 } from "react-router-dom";
 import Link from "@material-ui/core/Link";
+import DashboardSidebarEachWorkspace from "./DashboardSidebarEachWorkspace";
+// import { getCurrentWorkspace } from "../../../services/getCurrentWorkspace";
 
 function DashboardProfileSidebar(props) {
   //Check if active workspace
@@ -60,16 +62,11 @@ function DashboardProfileSidebar(props) {
 
         {props.workspaces.map((item, index) => {
           return (
-            <Link href={`/workspace/${item.eachWorkspaceName}`} key={index}>
-              <MaterialUI.Tooltip
-                title="Create Workspace"
-                placement="right-end"
-              >
-                <div className={DashboardSidebarCss.workspaceIcon}>
-                  {item.eachWorkspaceName}
-                </div>
-              </MaterialUI.Tooltip>
-            </Link>
+            <DashboardSidebarEachWorkspace
+              id={index}
+              key={index}
+              workspaceName={item.eachWorkspaceName}
+            />
           );
         })}
 
