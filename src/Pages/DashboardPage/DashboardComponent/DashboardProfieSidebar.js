@@ -2,6 +2,10 @@ import React from "react";
 import * as MaterialUI from "@material-ui/core";
 import DashboardSidebarCss from "./DashboardSidebar.module.css";
 import {
+  // BrowserRouter as Router,
+  // Switch,
+  // Route,
+  // Redirect,
   NavLink,
   useHistory,
 } from "react-router-dom";
@@ -9,6 +13,7 @@ import Link from "@material-ui/core/Link";
 
 function DashboardProfileSidebar(props) {
   //Check if active workspace
+  
   // const [active, setActive] = useState(true);
   // function checkActive() {
   //   if (active === true) {
@@ -55,18 +60,23 @@ function DashboardProfileSidebar(props) {
 
         {props.workspaces.map((item, index) => {
           return (
-            <Link href={`/workspace/${item}`} key={index}>
+            <Link href={`/workspace/${item.eachWorkspaceName}`} key={index}>
               <MaterialUI.Tooltip
                 title="Create Workspace"
                 placement="right-end"
               >
-                <div className={DashboardSidebarCss.workspaceIcon}>{item}</div>
+                <div className={DashboardSidebarCss.workspaceIcon}>
+                  {item.eachWorkspaceName}
+                </div>
               </MaterialUI.Tooltip>
             </Link>
           );
         })}
 
-        <NavLink to="/profile/create">
+        <NavLink
+          to="/profile/create"
+          activeClassName={DashboardSidebarCss.isActive}
+        >
           <MaterialUI.Tooltip title="Create Workspace" placement="right-end">
             <div className={DashboardSidebarCss.workspaceIcon}>
               Create workspace
@@ -74,7 +84,10 @@ function DashboardProfileSidebar(props) {
           </MaterialUI.Tooltip>
         </NavLink>
 
-        <NavLink to="/profile/find">
+        <NavLink
+          to="/profile/search"
+          activeClassName={DashboardSidebarCss.isActive}
+        >
           <MaterialUI.Tooltip title="Find Workspace" placement="right-end">
             <div className={DashboardSidebarCss.workspaceIcon}>
               Find workspaces
@@ -82,7 +95,11 @@ function DashboardProfileSidebar(props) {
           </MaterialUI.Tooltip>
         </NavLink>
 
-        <MaterialUI.Tooltip title="Logout" placement="right-end">
+        <MaterialUI.Tooltip
+          title="Logout"
+          placement="right-end"
+          activeClassName={DashboardSidebarCss.isActive}
+        >
           <div
             className={DashboardSidebarCss.workspaceIcon}
             onClick={handleLogout}

@@ -84,12 +84,14 @@ function RegisterContainer() {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       setIsSubmitted(true);
     }
-  }, [isSubmitting, errors]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [errors]);
 
   useEffect(() => {
     const { username, firstname, lastname, email, password } = values;
     const body = { username, firstname, lastname, email, password };
-    const url = "http://localhost:4000/register";
+    // const url = "http://localhost:4000/register";
+    const url = `${process.env.REACT_APP_API_SERVER}/register`;
     async function postRegister() {
       try {
         const response = await fetch(url, {
@@ -104,7 +106,8 @@ function RegisterContainer() {
       }
     }
     postRegister();
-  }, [isSubmitted, values]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSubmitted]);
 
   return (
     <>
