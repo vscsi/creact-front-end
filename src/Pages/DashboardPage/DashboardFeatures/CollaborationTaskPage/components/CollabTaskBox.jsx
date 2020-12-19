@@ -52,13 +52,8 @@ const CollabTaskBox = (props) => {
       };
       console.log("Form is submtted");
       console.log(body);
-<<<<<<< HEAD
       // const response = await Axios.post("http://localhost:4000/task", body, {
       const response = await Axios.post(`${process.env.REACT_APP_API_SERVER}/task`, body, {
-=======
-      const response = await Axios.post("http://localhost:4000/task", body, {
-        // const response = await Axios.post(`${process.env.REACT_APP_API_SERVER}/task`, body, {
->>>>>>> 6b1afa87f00328842a358448cfaea4fbc114aa59
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },
