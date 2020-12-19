@@ -11,8 +11,8 @@ import {
 } from "react-router-dom";
 
 const DashboardFeatureSidebar = (props) => {
-  // const { name } = useParams();
-
+  
+  console.log('dashboardfeaturessidebar props.chatroomId', props)
   return (
     <MaterialUI.Grid
       container
@@ -24,7 +24,7 @@ const DashboardFeatureSidebar = (props) => {
       className={`${DashboardSidebarCss.sideBarBorder} ${DashboardSidebarCss.sidebar2Background}`}
     >
       <NavLink
-        to={`/workspace/${props.currentWorkspace}/chat`}
+        to={`/workspace/${props.currentWorkspace}/chat?userid=${props.userId}&room=${props.chatroomId}`}
         className={DashboardSidebarCss.featureIconLink}
       >
         <MaterialUI.Tooltip title="Chatroom" placement="right-end">
@@ -43,15 +43,6 @@ const DashboardFeatureSidebar = (props) => {
           <div className={DashboardSidebarCss.featureIcon}>
             Collaboration Document
           </div>
-        </MaterialUI.Tooltip>
-      </NavLink>
-
-      <NavLink
-        to={`/workspace/${props.currentWorkspace}/dropbox`}
-        className={DashboardSidebarCss.featureIconLink}
-      >
-        <MaterialUI.Tooltip title="Dropbox" placement="right-end">
-          <div className={DashboardSidebarCss.featureIcon}>Dropbox</div>
         </MaterialUI.Tooltip>
       </NavLink>
 

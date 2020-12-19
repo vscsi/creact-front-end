@@ -57,17 +57,20 @@ const CollabTaskContainer = (props) => {
   //delete task function
   const handleDelete = async (id) => {
     try {
-      // const deleteTask = await fetch(`http://localhost:4000/tasks/${id}`, {
-      const deleteTask = await fetch(`${process.env.REACT_APP_API_SERVER}/tasks/${id}`, {
-        method: "DELETE",
+      // Axios.delete(`http://localhost:4000/tasks/${id}`, {
+      Axios.delete(`${process.env.REACT_APP_API_SERVER}/tasks/${id}`, {
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      }).then((res) => {
+        console.log(`delete res from '/tasks/id`);
+        console.log(res);
+        setTasks(
+          tasks.filter((task, index) => {
+            return task.id !== id;
+          })
+        );
       });
-      console.log(deleteTask);
-      setTasks(
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        tasks.filter((task, index) => {
-          return task.id !== id;
-        })
-      );
     } catch (error) {
       console.error(error.message);
     }
@@ -75,13 +78,19 @@ const CollabTaskContainer = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      {props.isAdmin && <CollabTaskBox users={props.users} />}
+      {props.isAdmin && (
+        <CollabTaskBox
+          users={props.users}
+          firstEmptyUsers={props.firstEmptyUsers}
+        />
+      )}
       <CollabTaskList
         tasks={currentTasks}
         handleDelete={handleDelete}
         tasksPerPage={tasksPerPage}
         totalTasks={tasks.length}
         paginate={paginate}
+        currentUser={props.name}
       />
     </div>
   );
