@@ -14,8 +14,8 @@ const getTasks = (cb) => {
         headers: { "x-access-token": localStorage.getItem("token") },
       }
     ).then((res) => {
-      console.log("get res from '/tasks");
-      console.log(res);
+      // console.log("get res from '/tasks");
+      // console.log(res);
 
       return cb(res.data);
     });

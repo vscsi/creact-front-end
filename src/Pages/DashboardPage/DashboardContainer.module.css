@@ -1,11 +1,21 @@
 .containerHeight {
   height: 100vh;
+  flex-wrap: 'no-wrap';
+  overflow: auto;
+  overflow-x: hidden;
 }
 .containerBackground{
-  background: #d0dbd3;
+  background: #F0EFE9;
 }
 
 .gridFeatureMain{
   overflow: auto;
+  min-height: 100%;
   max-height: 100%;
+
+}
+
+/* Feature sidebar */
+.brandBar{
+ padding: 3rem ;
 }

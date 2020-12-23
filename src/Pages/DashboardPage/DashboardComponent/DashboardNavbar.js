@@ -1,17 +1,17 @@
 import React from "react";
+//eslint-disable-next-line
 import * as MaterialUI from "@material-ui/core";
 // import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import DashboardNavbarCss from "./DashboardNavbar.module.css";
 import { makeStyles } from "@material-ui/core/styles";
 
 function DashboardNavbar(props) {
-  // const [userName, setUserName] = useState("");
-  //overriding Avatar root class
   const styles = makeStyles({
     root: {
       margin: "0.5rem",
     },
   });
+  //eslint-disable-next-line
   const classes = styles();
 
   return (
@@ -19,7 +19,7 @@ function DashboardNavbar(props) {
       <nav className={DashboardNavbarCss.DashboardNav}>
         {/* <div className={DashboardNavbarCss.remindBox}>Remind Box</div> */}
 
-        <div className={DashboardNavbarCss.userIcon}>
+        {/* <div className={DashboardNavbarCss.userIcon}>
           {props.loginUsers.map((item, index) => {
             return (
               <MaterialUI.Avatar key={index} classes={{ root: classes.root }}>
@@ -27,7 +27,7 @@ function DashboardNavbar(props) {
               </MaterialUI.Avatar>
             );
           })}
-        </div>
+        </div> */}
         {/* <div className={DashboardNavbarCss.userIcon}>
           <MaterialUI.Avatar classes={{ root: classes.root }}>
             {props.loginUsers[0].name}

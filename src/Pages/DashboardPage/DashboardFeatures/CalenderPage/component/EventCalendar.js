@@ -6,6 +6,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
+import { Card, Divider } from "@material-ui/core";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -42,6 +43,7 @@ const EventCalendar = (props) => {
   const [eventRepsonsible, setEventResponsible] = useState("");
   const [eventContent, setEventContent] = useState("");
   const [eventDeadline, setEventDeadline] = useState("");
+  const [eventWorkspace, setEventWorkspace] = useState("");
 
   function parseISOString(s) {
     var b = s.split(/\D+/);
@@ -67,17 +69,28 @@ const EventCalendar = (props) => {
         setEventResponsible(props.tasks[i].responsible);
         setEventContent(props.tasks[i].content);
         setEventDeadline(parseISOString(props.tasks[i].date).toString());
+        setEventWorkspace(props.tasks[i].workspaceName);
       }
     }
   };
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Task: {eventTitle}</h2>
-      <p id="simple-modal-description">Responsible: {eventRepsonsible}</p>
-      <p id="simple-modal-description">Deadline: {eventDeadline}</p>
-      <p id="simple-modal-description">Description: {eventContent}</p>
-    </div>
+    <Card>
+      <div style={modalStyle} className={classes.paper}>
+        <h2 id="simple-modal-title">Task: {eventTitle}</h2>
+        <Divider />
+        {!props.onlyWorkspace && (
+          <p id="simple-modal-description">Workspace: {eventWorkspace}</p>
+        )}
+        {!props.onlyUser && (
+          <p id="simple-modal-description">Responsible: {eventRepsonsible}</p>
+        )}
+        <p id="simple-modal-description">Deadline: {eventDeadline}</p>
+        <p id="simple-modal-description">
+          Description: {eventContent.substring(0, 50)}
+        </p>
+      </div>
+    </Card>
   );
   return (
     <div>

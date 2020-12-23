@@ -7,6 +7,7 @@ import Axios from "axios";
 import { getCurrentWorkspace } from "../../../../services/getCurrentWorkspace";
 import { makeStyles } from "@material-ui/core/styles";
 // import Paper from "@material-ui/core/Paper";
+//eslint-disable-next-line
 import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,8 +47,8 @@ const CollabTaskContainer = (props) => {
           headers: { "x-access-token": localStorage.getItem("token") },
         }
       ).then((res) => {
-        console.log("get res from '/tasks");
-        console.log(res);
+        // console.log("get res from '/tasks");
+        // console.log(res);
         setTasks(res.data);
         // console.log(jsonData);
       });
@@ -74,13 +75,13 @@ const CollabTaskContainer = (props) => {
   const handleDelete = async (id) => {
     try {
       // Axios.delete(`http://localhost:4000/tasks/${id}`, {
-      Axios.delete(`${process.env.REACT_APP_API_SERVER}/tasks/${id}`, {
+        Axios.delete(`${process.env.REACT_APP_API_SERVER}/tasks/${id}`, {
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },
       }).then((res) => {
-        console.log(`delete res from '/tasks/id`);
-        console.log(res);
+        // console.log(`delete res from '/tasks/id`);
+        // console.log(res);
         setTasks(
           tasks.filter((task, index) => {
             return task.id !== id;
@@ -95,26 +96,29 @@ const CollabTaskContainer = (props) => {
   return (
     // <div className={styles.wrapper}>
     <div className={classes.root}>
-      <Grid container spacing={2} m={2}>
-        {props.isAdmin && (
-          <Grid item xs={6}>
-            <CollabTaskBox
-              users={props.users}
-              firstEmptyUsers={props.firstEmptyUsers}
-            />
-          </Grid>
-        )}
-        <Grid item xs={!props.isAdmin ? 12 : 6}>
-          <CollabTaskList
-            tasks={currentTasks}
-            handleDelete={handleDelete}
-            tasksPerPage={tasksPerPage}
-            totalTasks={tasks.length}
-            paginate={paginate}
-            currentUser={props.name}
-          />
-        </Grid>
-      </Grid>
+      {/* <Grid container spacing={2} m={2}> */}
+      {/* {props.isAdmin && ( */}
+      {/* // <Grid item xs={6}> */}
+      {props.isAdmin && (
+        <CollabTaskBox
+          users={props.users}
+          firstEmptyUsers={props.firstEmptyUsers}
+        />
+      )}
+
+      {/* </Grid> */}
+      {/* )} */}
+      {/* <Grid item xs={!props.isAdmin ? 12 : 6}> */}
+      <CollabTaskList
+        tasks={currentTasks}
+        handleDelete={handleDelete}
+        tasksPerPage={tasksPerPage}
+        totalTasks={tasks.length}
+        paginate={paginate}
+        currentUser={props.name}
+      />
+      {/* </Grid>
+      </Grid> */}
     </div>
     // </div>
   );

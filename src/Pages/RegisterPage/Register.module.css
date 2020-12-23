@@ -1,5 +1,6 @@
-.registerH1Container{
-  margin-top: 30vh
+body { 
+  background: #333;
+  overflow: auto;
 }
 
 .registerButton{

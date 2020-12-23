@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import DashboardContainerCss from "./DashboardContainer.module.css";
+//eslint-disable-next-line
+import DashboardSidebarCss from '../DashboardPage/DashboardComponent/DashboardSidebar.module.css'
 import { Grid } from "@material-ui/core";
 import {
   BrowserRouter as Router,
   // Switch,
   Route,
   // useParams,
+  //eslint-disable-next-line
+  HashRouter
 } from "react-router-dom";
 import DashboardNavbar from "./DashboardComponent/DashboardNavbar";
 import ChatroomContainer from "./DashboardFeatures/ChatroomPage/ChatroomContainer";
@@ -45,12 +49,15 @@ function DashboardContainer() {
   const [userId, setUserId] = useState("");
   const [loginUsers, setLoginUsers] = useState([]);
   // const [currClickWorkspace, setCurrClickWorkspace] = useState("");
+  const location = window.location.pathname;
+  const [userImg, setUserImg] = useState("");
 
   const chatroomInit = (workspace) => {
     console.log("chatroomInit receive", workspace);
     try {
-      // Axios.post( "http://localhost:4000/workspace/chatroominit",
-      Axios.post(`${process.env.REACT_APP_API_SERVER}/workspace/chatroominit`,
+      // Axios.post(
+        // "http://localhost:4000/workspace/chatroominit",
+        Axios.post(`${process.env.REACT_APP_API_SERVER}/workspace/chatroominit`,
         {
           workspaceName: workspace,
         },
@@ -85,22 +92,23 @@ function DashboardContainer() {
     }
   };
 
-  const getUserInfo = () => {
+ const getUserInfo = () => {
     try {
       // Axios.get("http://localhost:4000/username", {
-      Axios.get(`${process.env.REACT_APP_API_SERVER}/username`, {
+        Axios.get(`${process.env.REACT_APP_API_SERVER}/username`, {
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },
       }).then((res) => {
         setUserId(res.data.id);
         setUserName(res.data.userName);
+        setUserImg(res.data.userImg);
       });
     } catch (error) {
       console.error(error.message);
     }
   };
-
+  
   const getCurrentWorkspace = () => {
     const path = window.location.pathname;
     // console.log(`url is below`);
@@ -120,8 +128,8 @@ function DashboardContainer() {
 
   const getAllWorkspaces = () => {
     try {
-      // Axios.get("http://localhost:4000/workspace/all", {
-      Axios.get(`${process.env.REACT_APP_API_SERVER}/workspace/all`, {
+      Axios.get("http://localhost:4000/workspace/all", {
+        // Axios.get(`${process.env.REACT_APP_API_SERVER}/workspace/all`, {
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },
@@ -139,8 +147,8 @@ function DashboardContainer() {
     try {
       //1. send post request to server, query to "user_workspace" table
       Axios.post(
-        // "http://localhost:4000/workspace/check",
-        `${process.env.REACT_APP_API_SERVER}/workspace/check`,
+        "http://localhost:4000/workspace/check",
+        // `${process.env.REACT_APP_API_SERVER}/workspace/check`,
         {
           workspaceName: workspace,
         },
@@ -165,8 +173,8 @@ function DashboardContainer() {
   const postLogout = () => {
     try {
       Axios.post(
-        // "http://localhost:4000/checkloginusers",
-       `${process.env.REACT_APP_API_SERVER}/checkloginusers`,
+        "http://localhost:4000/checkloginusers",
+        //  `${process.env.REACT_APP_API_SERVER}/checkloginusers`,
         {
           userName: "",
         },
@@ -175,110 +183,152 @@ function DashboardContainer() {
         }
       ).then((res) => {
         console.log("Current login users from '/checkloginusers'");
-        console.log(res.data.loginUsers);
+        // console.log(res.data.loginUsers);
         const currentLoginUsers = res.data.loginUsers;
-        console.log(currentLoginUsers);
+        // console.log(currentLoginUsers);
         setLoginUsers(currentLoginUsers);
       });
     } catch (error) {
       console.error(error.message);
     }
-  };
-
+  }
+  // const checkLocation =
   useEffect(() => {
     getUserWorkspaces();
     getUserInfo();
     getCurrentWorkspace();
     getAllWorkspaces();
     postLogout();
+    // checkCurrentUrl();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
+    {/* Grid1 */}
       <Grid
         container
         direction="row"
         alignItems="stretch"
         // wrap="nowrap"
         className={`${DashboardContainerCss.containerHeight} ${DashboardContainerCss.containerBackground}`}
+        
       >
         <Router>
-          <DashboardProfileSidebar
-            name={userName}
-            workspaces={userWorkspaces}
-            currClickWorkspace={currentWorkspace}
-          />
-          <DashboardFeatureSidebar
-            currentWorkspace={currentWorkspace}
-            userId={userId}
-            chatroomId={chatroomId}
-          />
-          <Grid
-            Container
-            direction="row"
-            md={9}
-            spacing={0}
-            alignItems={"flex-end"}
-            className={DashboardContainerCss.gridFeatureMain}
-          >
-            <DashboardNavbar loginUsers={loginUsers} userName={userName} />
-            {/* <Switch> */}
-            {/* for profile route */}
-            <Route path="/profile" component={DashboardProfileHome} />
-            {/* <Route path="/profile/find" component={DashboardAddSocial} /> */}
-            <Route
-              exact
-              path="/profile/create"
-              render={() => {
-                setCurrentWorkspace("");
-                return <DashboardCreateWorkspace />;
-              }}
-              // component={DashboardCreateWorkspace}
-            />
-            <Route path="/profile/search">
-              <DashboardSearchWorkspace allWorkspaces={allWorkspaces} />
-            </Route>
-            {/* for workspace route */}
-            <Route
-              exact
-              path={`/workspace/:${currentWorkspace}/chat`}
-              component={ChatroomContainer}
-            />
-            <Route
-              path={`/workspace/:${currentWorkspace}/docs`}
-              component={CollabNoteContainer}
-            />
-            <Route
-              path={`/workspace/:${currentWorkspace}/dropbox`}
-              component={DropboxContainer}
-            />
-            <Route
-              path={`/workspace/:${currentWorkspace}/tasks`}
-              render={(props) => (
-                <CollabTaskContainer
-                  {...props}
-                  isAdmin={isAdmin}
-                  users={users}
-                  name={userName}
-                  firstEmptyUsers={firstEmptyUsers}
+          {/* Grid2 */}
+            <DashboardProfileSidebar
+              name={userName}
+              workspaces={userWorkspaces}
+              currClickWorkspace={currentWorkspace}
+              userImg={userImg}
+              />
+            {/* Grid 3 */}
+            <Grid
+              Container
+              item
+              direction="column"
+              md={11}
+              spacing={0}
+              alignItems="flex-end"
+              className={DashboardContainerCss.gridFeatureMain}
+            >
+              {/* Grid 4 */}
+              <Grid item xs={12}>
+                <DashboardNavbar loginUsers={loginUsers} userName={userName} />
+              </Grid>
+
+              {/* Grid 5 */}
+              <Grid container item xs ={12} className={DashboardContainerCss.gridFeatureMain}>
+                {/* Grid 6 */}
+                <Grid
+                container
+                item
+                md={2}
+                spacing={0}
+                alignItems="center"
+                justify="space-around"
+                direction="column"
+                className={`${DashboardContainerCss.gridFeatureMain}`}
+                 >
+                 {/* <div className = {DashboardSidebarCss.sidebarHeight}> */}
+                 {currentWorkspace !== "" && (
+                    <DashboardFeatureSidebar
+                      currentWorkspace={currentWorkspace}
+                      userId={userId}
+                      chatroomId={chatroomId}
+                      location={location}
+                    />
+                  )}
+                  {/* </div> */}
+                </Grid>
+
+                {/* Grid 7 */}
+                <Grid item xs ={10}>
+                  {/* <Switch> */}
+                  {/* for profile route */}
+                  <Route exact path="/profile" component={DashboardProfileHome} />
+                  {/* <Route path="/profile/find" component={DashboardAddSocial} /> */}
+                  <Route
+                    path="/profile/create"
+                    render={() => {
+                      setCurrentWorkspace("");
+                      return <DashboardCreateWorkspace />;
+                    }}
+                    // component={DashboardCreateWorkspace}
+                  />
+                  <Route
+                  path="/profile/search"
+                  render={() => {
+                    setCurrentWorkspace("");
+                    return <DashboardSearchWorkspace allWorkspaces={allWorkspaces} />;
+                  }}
                 />
-              )}
-            ></Route>
-            <Route
-              path={`/workspace/:${currentWorkspace}/calender`}
-              component={CalenderContainer}
-            />
-            <Route
-              path={`/workspace/:${currentWorkspace}/whiteboard`}
-              component={WhiteboardContainer}
-            />
-            <VideoContainer
-              currentWorkspace={currentWorkspace}
-              userName={userName}
-            />
-            {/* </Switch> */}
-          </Grid>
+                  
+                  {/* </Route> */}
+                  {/* for workspace route */}
+                  <Route
+                    path={`/workspace/:${currentWorkspace}/chat`}
+                    // render ={()=>{
+                    //   <ChatroomContainer/>
+                    // }}
+                    component={ChatroomContainer}
+                  />
+                  <Route
+                    path={`/workspace/:${currentWorkspace}/docs`}
+                    component={CollabNoteContainer}
+                  />
+                  <Route
+                    path={`/workspace/:${currentWorkspace}/dropbox`}
+                    component={DropboxContainer}
+                  />
+                  <Route
+                    path={`/workspace/:${currentWorkspace}/tasks`}
+                    render={(props) => (
+                      <CollabTaskContainer
+                        {...props}
+                        isAdmin={isAdmin}
+                        users={users}
+                        name={userName}
+                        firstEmptyUsers={firstEmptyUsers}
+                      />
+                    )}
+                  ></Route>
+                  <Route
+                    path={`/workspace/:${currentWorkspace}/calender`}
+                    component={CalenderContainer}
+                  />
+                  <Route
+                    path={`/workspace/:${currentWorkspace}/whiteboard`}
+                    component={WhiteboardContainer}
+                  />
+                  <VideoContainer
+                    currentWorkspace={currentWorkspace}
+                    userName={userName}
+                  />
+                  {/* </Switch> */}
+                  </Grid>
+              </Grid>
+            </Grid>
         </Router>
       </Grid>
     </>
@@ -286,3 +336,5 @@ function DashboardContainer() {
 }
 
 export default DashboardContainer;
+
+

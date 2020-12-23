@@ -4,9 +4,12 @@ import DashboardProfileSidebar from "./DashboardComponent/DashboardProfieSidebar
 import { Grid } from "@material-ui/core";
 import {
   BrowserRouter as Router,
+  //eslint-disable-next-line
   Switch,
   Route,
   // Redirect,
+  //eslint-disable-next-line
+  HashRouter,
 } from "react-router-dom";
 import DashboardNavbar from "./DashboardComponent/DashboardNavbar";
 // import DashboardAddSocial from "./DashboardComponent/DashboardAddSocial";
@@ -23,17 +26,21 @@ function DashboardProfileContainer() {
   const [allWorkspaces, setAllWorkspaces] = useState([]);
   const [loginUsers, setLoginUsers] = useState([]);
   const [currClickWorkspace, setCurrClickWorkspace] = useState("");
+  const [userImg, setUserImg] = useState("");
+  const [userFirstName, setUserFirstName] = useState("");
+  const [userLastName, setUserLastName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
 
   const getUserWorkspaces = () => {
     try {
       // Axios.get("http://localhost:4000/workspace/list", {
-      Axios.get(`${process.env.REACT_APP_API_SERVER}/workspace/list`, {
+        Axios.get(`${process.env.REACT_APP_API_SERVER}/workspace/list`, {
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },
       }).then((res) => {
-        console.log(`all user workspaces`);
-        console.log(res);
+        // console.log(`all user workspaces`);
+        // console.log(res);
         // console.log(res.data.allWorkspaces);
         setUserWorkspaces(res.data.userWorkspaces);
       });
@@ -45,14 +52,20 @@ function DashboardProfileContainer() {
   const getUserName = () => {
     try {
       // Axios.get("http://localhost:4000/username", {
-      Axios.get(`${process.env.REACT_APP_API_SERVER}/username`, {
+        Axios.get(`${process.env.REACT_APP_API_SERVER}/username`, {
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },
       }).then((res) => {
         console.log(`res from /username`);
-        console.log(res.data.userName);
+        // console.log(res.data.userName);
+        // console.log(res.data.userImg);
+        console.log(res.data.firstName);
         setUserName(res.data.userName);
+        setUserImg(res.data.userImg);
+        setUserFirstName(res.data.firstName);
+        setUserLastName(res.data.lastName);
+        setUserEmail(res.data.email);
       });
     } catch (error) {
       console.error(error.message);
@@ -62,13 +75,13 @@ function DashboardProfileContainer() {
   const getAllWorkspaces = () => {
     try {
       // Axios.get("http://localhost:4000/workspace/all", {
-      Axios.get(`${process.env.REACT_APP_API_SERVER}/workspace/all`, {
+        Axios.get(`${process.env.REACT_APP_API_SERVER}/workspace/all`, {
         headers: {
           "x-access-token": localStorage.getItem("token"),
         },
       }).then((res) => {
-        console.log(`res from workspace/all`);
-        console.log(res);
+        // console.log(`res from workspace/all`);
+        // console.log(res);
         setAllWorkspaces(res.data);
       });
     } catch (error) {
@@ -79,13 +92,13 @@ function DashboardProfileContainer() {
   const postLogout = () => {
     try {
       // Axios.get("http://localhost:4000/checkloginusers", {
-      Axios.get(`${process.env.REACT_APP_API_SERVER}/checkloginusers`, {
+        Axios.get(`${process.env.REACT_APP_API_SERVER}/checkloginusers`, {
         headers: { "x-access-token": localStorage.getItem("token") },
       }).then((res) => {
-        console.log("Current login users from '/checkloginusers'");
-        console.log(res.data.loginUsers);
+        // console.log("Current login users from '/checkloginusers'");
+        // console.log(res.data.loginUsers);
         const currentLoginUsers = res.data.loginUsers;
-        console.log(currentLoginUsers);
+        // console.log(currentLoginUsers);
         setLoginUsers(currentLoginUsers);
       });
     } catch (error) {
@@ -97,7 +110,7 @@ function DashboardProfileContainer() {
     getUserWorkspaces();
     getUserName();
     getAllWorkspaces();
-    postLogout(); 
+    postLogout();
   }, []);
 
   return (
@@ -113,6 +126,7 @@ function DashboardProfileContainer() {
             name={userName}
             workspaces={userWorkspaces}
             currClickWorkspace={currClickWorkspace}
+            userImg={userImg}
           />
           <Grid
             Container
@@ -120,24 +134,30 @@ function DashboardProfileContainer() {
             md={11}
             spacing={0}
             alignItems={"flex-end"}
+            className={DashboardContainerCss.gridFeatureMain}
           >
-            <DashboardNavbar loginUsers={loginUsers} userName={userName} />
-            <Switch>
-              <Route exact path="/profile" component={DashboardProfileHome} />
-              {/* <Route path="/profile/find" component={DashboardAddSocial} /> */}
-              <Route
-                exact
-                path="/profile/create"
-                render={() => {
-                  setCurrClickWorkspace("");
-                  return <DashboardCreateWorkspace />;
-                }}
-                // component={DashboardCreateWorkspace}
+            <DashboardNavbar loginUsers={loginUsers} name={userName} />
+            <Route exact path="/profile">
+              <DashboardProfileHome
+                name={userName}
+                userImg={userImg}
+                userFirstName={userFirstName}
+                userLastName={userLastName}
+                userEmail={userEmail}
               />
-              <Route exact path="/profile/search">
-                <DashboardSearchWorkspace allWorkspaces={allWorkspaces} />
-              </Route>
-            </Switch>
+            </Route>
+            <Route
+              exact
+              path="/profile/create"
+              render={() => {
+                setCurrClickWorkspace("");
+                return <DashboardCreateWorkspace />;
+              }}
+              // component={DashboardCreateWorkspace}
+            />
+            <Route exact path="/profile/search">
+              <DashboardSearchWorkspace allWorkspaces={allWorkspaces} />
+            </Route>
           </Grid>
         </Router>
       </Grid>
